@@ -1,0 +1,16 @@
+name: Setup env
+runs:
+  using: composite
+  steps:
+    - name: Install pnpm
+      uses: pnpm/action-setup@v3
+
+    - name: Setup node
+      uses: actions/setup-node@v3
+      with:
+        node-version: latest
+        cache: pnpm
+
+    - name: Install deps
+      shell: bash
+      run: pnpm i
